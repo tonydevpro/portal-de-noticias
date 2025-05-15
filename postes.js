@@ -5,6 +5,9 @@ const uri = "mongodb+srv://tonyDev:antonio1358@cluster0.zsmnsv3.mongodb.net/test
 
 
 mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 10000
 }).then(() => {
     console.log('MongoDB Atlas conectado com sucesso!');
 }).catch((err) => {
