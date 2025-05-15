@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="/publica/stylesPainel.css">
+
+</head>
+<body>
+    <h2>Bem-vindo, <%= user.nome %>!</h2>
+    <p>Você está logado como <%= user.email %>.</p>
+
+        <form action="/cadastrarNoticia" method="POST" enctype="multipart/form-data">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            <br>
+
+            <label for="img">Imagem:</label>
+            <input type="file" id="img" name="img" accept="image/*" required>
+            <br>
+
+            <label for="categoria">Categoria:</label>
+            <input type="text" id="categoria" name="categoria" required>
+            <br>
+
+            <label for="conteudo">Conteúdo:</label>
+            <textarea id="conteudo" name="conteudo" rows="5" required></textarea>
+            <br>
+
+            <label for="slug">Slug:</label>
+            <input type="text" id="slug" name="slug" required>
+            <br>
+
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor" required>
+            <br>
+
+            <button type="submit">Cadastrar Notícia</button>
+        </form>
+
+    <h3>Notícias Cadastradas</h3>
+    <ul>
+        <% noticias.forEach(noticia => { %>
+            <li>
+                <h4><%= noticia.titulo %></h4>
+                <p><%= noticia.conteudo %></p>
+                <small>Autor: <%= noticia.autor %></small>
+                <br>
+                <a href="/editarNoticias/<%= noticia._id %>">Editar</a> | 
+                <a href="/deletarNoticia/<%= noticia._id %>">Deletar</a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <a href="/logout">Sair</a>
+    <%- include('partes/footer.ejs') %>
+</body>
+</html>
+<!-- Este é um modelo de página de painel administrativo simples usando sintaxe EJS -->

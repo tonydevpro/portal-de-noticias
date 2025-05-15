@@ -1,0 +1,61 @@
+
+<%- include('partes/header') %>
+
+    <section class="noticia-destaque">
+        <div class="centro">
+            <div class="img-destaque">
+                <div class="overlay-destque">
+
+                </div>
+                <div class="titulo-destaque">
+                    <h2><%= noticias[0].titulo %></h2>
+                    <p><%= noticias[0].conteudo %></p>
+                </div>
+                <img src="/publica/img/<%= noticias[0].img %>" alt="">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="outras-noticias">
+        <div class="titulo-outras-noticias">
+            <h2>ultimas noticias</h2>
+            <div class="centro">
+                <div class="ultimas">
+                <% for (i=1; i < noticias.length; i++){ %>
+                    <div class="box-ultima-sigla">
+                        <img src="/publica/img/<%= noticias[i].img%>" alt="">
+                        <div class="conteudo-noticia-sigla">
+                            <h3><%= noticias[i].categoria%></h3>
+                            <h2><%= noticias[i].titulo %></h2>
+                            <p> <%= noticias[i].conteudo %></p>
+                            <a href="<%= noticias[i].slug%>">saiba mais</a>
+                        </div>
+                    </div>
+                <% }; %>
+                </div>
+                
+                <div class="mais-lidas">
+                    <h3>mais lidas</h3>
+                    <div class="mais-lidas-noticias">
+                        <% for (i=0; i < ordemNoticias.length; i++){ %>
+                        <div class="mais-lida-noticia-sigla">
+                            <img src="/publica/img/<%= ordemNoticias[i].img%>" alt="">
+                            <div class="texto-mais-lida-sigla">
+                                <h4><%= ordemNoticias[i].titulo%></h4>
+                                <p><%= ordemNoticias[i].conteudo %></p>
+                                <a href="<%= ordemNoticias[i].slug%>">saiba mais</a>
+                            </div>
+                            <span><%=ordemNoticias[i].views%></span>
+                        </div>
+                   <% } %>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partes/footer.ejs') %>
+</body>
+</html>

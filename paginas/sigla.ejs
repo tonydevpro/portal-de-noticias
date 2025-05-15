@@ -1,0 +1,36 @@
+<%- include('partes/header') %>
+
+<section class="noticia">
+    <div class="centro">
+        <div class="noticia-sigla">
+            <h2><%=noticia.titulo%></h2>
+            <div class="autor-nome">
+                <span><%=noticia.autor%></span>
+            </div>
+            <div>
+                <img style="max-width: 100%;" src="/publica/img/<%=noticia.img%>" alt="">
+            </div>
+            <p><%=noticia.conteudo%></p>
+            <h5><%=noticia.views%></h5>
+        </div>
+        <div class="mais-lidas">
+                    <h3>mais lidas</h3>
+                    <div class="mais-lidas-noticias">
+                        <% for (i=0; i < ordemNoticias.length; i++){ %>
+                        <div class="mais-lida-noticia-sigla">
+                            <img src="/publica/img/<%= ordemNoticias[i].img%>" alt="">
+                            <div class="texto-mais-lida-sigla">
+                                <h4><%= ordemNoticias[i].titulo%></h4>
+                                <p><%= ordemNoticias[i].conteudo %></p>
+                                <a href="<%= ordemNoticias[i].slug%>">saiba mais</a>
+                            </div>
+                            <span><%=ordemNoticias[i].views%></span>
+                        </div>
+                   <% } %>
+                        
+                    </div>
+                </div>
+    </div>
+</section>
+
+<%- include('partes/footer') %>

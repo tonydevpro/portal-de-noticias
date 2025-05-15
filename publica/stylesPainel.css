@@ -1,0 +1,138 @@
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    justify-self: center;
+  }
+  
+  body.dark-mode {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    color: #007a7a;
+  }
+  
+  body.dark-mode h2 {
+    color: #4bd1d1;
+  }
+  
+  form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+  }
+  
+  body.dark-mode form {
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 10px rgba(255,255,255,0.05);
+  }
+  
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="file"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #007a7a;
+  }
+  
+  body.dark-mode input,
+  body.dark-mode textarea {
+    background-color: #1f1f1f;
+    color: #f0f0f0;
+    border-color: #444;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #007a7a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #005555;
+  }
+  
+  h3 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 700px;
+  }
+  
+  li {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  body.dark-mode li {
+    background-color: #2a2a2a;
+    box-shadow: 0 2px 6px rgba(255,255,255,0.05);
+  }
+  
+  a {
+    color: #007a7a;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a[href="/logout"] {
+    display: inline-block;
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 600px) {
+    form, ul {
+      width: 100%;
+    }
+  }
+  

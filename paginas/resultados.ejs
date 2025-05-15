@@ -1,0 +1,37 @@
+<%- include('partes/header') %>
+
+<section class="noticia">
+  <div class="centro" style="flex-wrap: wrap;">
+    <div class="noticia-sigla">
+      <h2>Resultados da busca por: "<%= procurar %>"</h2>
+
+      <% if (resultados.length === 0) { %>
+        <p>Nenhuma notícia encontrada com esse termo.</p>
+      <% } else { %>
+        <% resultados.forEach(noticia => { %>
+          <div class="box-ultima-sigla">
+            <h3><a href="/<%= noticia.slug %>"><%= noticia.titulo %></a></h3>
+            <p><%= noticia.conteudo %></p>
+            <small><%= noticia.views %> visualizações</small>
+          </div>
+          <br>
+        <% }); %>
+      <% } %>
+    </div>
+
+    <div class="mais-lidas">
+      <h3>Mais Lidas</h3>
+      <% ordemNoticias.slice(0, 5).forEach(noticia => { %>
+        <div class="mais-lida-noticia-sigla">
+          <div class="texto-mais-lida-sigla">
+            <h4><a href="/<%= noticia.slug %>"><%= noticia.titulo %></a></h4>
+            <img src="/publica/img/<%= noticia.img%>" alt="">
+            <p><%= noticia.views %> views</p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<%- include('partes/footer.ejs') %>

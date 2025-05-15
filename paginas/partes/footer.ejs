@@ -1,0 +1,40 @@
+<footer>
+    <p>Todos os direitos reservados a TonyDEV</p>
+</footer>
+<style>
+    footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+  position: relative;
+  margin-top: 2rem;
+}
+
+/* Estilo para modo escuro */
+body.dark-mode footer {
+  background-color: #1e1e1e;
+  color: #ccc;
+  border-top: 1px solid #444;
+}
+
+</style>
+<script>
+    const toggleButton = document.getElementById('toggleDark');
+    const prefersDark = localStorage.getItem('dark-mode') === 'true';
+  
+    if (prefersDark) {
+      document.body.classList.add('dark-mode');
+      toggleButton.textContent = '☀️';
+    }
+  
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleButton.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('dark-mode', isDark);
+    });
+  </script>
+  

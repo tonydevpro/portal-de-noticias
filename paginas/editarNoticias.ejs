@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Notícias</title>
+    <link rel="stylesheet" href="/publica/stylesEditar.css">
+</head>
+<body>
+    <header>
+        <h1>Editar Notícia</h1>
+    </header>
+
+    <main>
+        <form action="/editarNoticias/<%= noticia._id %>" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<%= noticia._id %>">
+
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" value="<%= noticia.titulo %>" required>
+            </div>
+
+            <div>
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoria" name="categoria" value="<%= noticia.categoria %>" required>
+            </div>
+
+            <div>
+                <label for="conteudo">Conteúdo:</label>
+                <textarea id="conteudo" name="conteudo" rows="10" required><%= noticia.conteudo %></textarea>
+            </div>
+
+            <div>
+                <label for="slug">Slug (URL única):</label>
+                <input type="text" id="slug" name="slug" value="<%= noticia.slug %>" required>
+            </div>
+
+            <div>
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" name="autor" value="<%= noticia.autor %>" required>
+            </div>
+
+            <div>
+                <p>Imagem atual:</p>
+                <% if (noticia.img) { %>
+                    <img src="/publica/img/<%= noticia.img %>" alt="Imagem da notícia" style="max-width: 200px;">
+                <% } else { %>
+                    <p>Nenhuma imagem enviada</p>
+                <% } %>
+            </div>
+
+            <div>
+                <label for="img">Nova imagem (opcional):</label>
+                <input type="file" id="img" name="img" accept="image/*">
+            </div>
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Portal de Notícias</p>
+    </footer>
+</body>
+</html>
